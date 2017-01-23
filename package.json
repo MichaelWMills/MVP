@@ -1,0 +1,23 @@
+{
+  "name": "hrr21-mvp",
+  "version": "1.0.0",
+  "description": "v0.01",
+  "main": "App.js",
+  "engines": {
+    "node": "7.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizz1337/MVP.git"
+  },
+  "author": "Michael Mills",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizz1337/MVP/issues"
+  },
+  "homepage": "https://github.com/rizz1337/MVP#readme"
+}
