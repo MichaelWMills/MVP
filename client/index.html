@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html ng-app='rocket'>
+<html ng-app='rocketApp'>
   <head>
     <script src='./angular/angular.js'></script>
+    <script src='./App.js'></script>
   </head>
   <body>
-    <div ng-view>Hello World!</div>
-      <form name='distance' ng-submit='calculate()'>
-        <input type='number' ng-model='rocket.fuel'>
-        <input type='number' ng-model='rocket.mass'>
-        <select name='engines'>
-          <option value='FILL_ME_IN'>FILL_ME_IN</option>
-          <option value='FILL_ME_IN'>FILL_ME_IN</option>
-          <option value='FILL_ME_IN'>FILL_ME_IN</option>
-          <option value='FILL_ME_IN'>FILL_ME_IN</option>
-        </select>
+    <div >Hello World!</div>
+      <form ng-controller='rocketController as rocket' ng-submit='calculate()'>
+        <input type='string' value='Enter your rockets full mass here' ng-model='rocket.fullMass'>
+        <input type='string' value='Enter your rockets empty mass here' ng-model='rocket.emptyMass'>
+        <input type='string' value='Enter your rockets engine ISP here' ng-model='rocket.engineISP'>
       </form>
-    <script src='./App.js'></script>
+    <div>
+    </div>
   </body>
 </html>
