@@ -6,7 +6,7 @@ var app = express();
 var port = process.env.PORT || 8000;
 
 
-mongoose.connect('mongodb://localhost/db');
+mongoose.connect('mongodb://heroku_f88v656k:g3e52am2q3bb4iraatdqgjmkdf@ds127949.mlab.com:27949/heroku_f88v656k');
 
 var db = mongoose.connection;
 
