@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 8000;
 
-
+//mongoose.connect('mongodb://localhost/db');
 mongoose.connect('mongodb://heroku_f88v656k:g3e52am2q3bb4iraatdqgjmkdf@ds127949.mlab.com:27949/heroku_f88v656k');
 
 var db = mongoose.connection;
@@ -17,8 +17,8 @@ db.once('open', function() {
 
 var rocketSchema = mongoose.Schema({
   model: String,
-  emptyMass: Number,
-  fullMass: Number,
+  drymass: Number,
+  fullmass: Number,
   engineisp: Number,
   deltav: Number
 });
@@ -33,11 +33,12 @@ app.listen(port, function() {
 });
 
 app.post('/rocketList', function(req, res) {
+  console.log(req.body);
   var rocket = new Rocket({
     model: req.body.model,
-    emptyMass: req.body.emptyMass,
-    fullMass: req.body.fullMass,
-    engineisp: req.body.engine,
+    drymass: req.body.drymass,
+    fullmass: req.body.fullmass,
+    engineisp: req.body.engineisp,
     deltav: req.body.deltav
   });
 
