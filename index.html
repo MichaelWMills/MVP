@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app='rocket'>
+  <head>
+  </head>
+  <body>
+    <div ng-view>Hello World!</div>
+      <form name='distance' ng-submit='calculate()'>
+        <input type='number' ng-model='rocket.distance'>
+        <input type='number' ng-model='rocket.mass'>
+        <select name='engines'>
+          <option value='FILL_ME_IN'>FILL_ME_IN</option>
+          <option value='FILL_ME_IN'>FILL_ME_IN</option>
+          <option value='FILL_ME_IN'>FILL_ME_IN</option>
+          <option value='FILL_ME_IN'>FILL_ME_IN</option>
+        </select>
+      </form>
+    <script src='App.js'></script>
+  </body>
+</html>
