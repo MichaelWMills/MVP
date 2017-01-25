@@ -11,6 +11,8 @@ angular.module('rocketApp', [])
 
     $scope.rocket.deltav = 0;
 
+    $scope.rocket.where = '';
+
     $scope.getAllRockets = function() {
       console.log('getAllRockets was called');
       $http({
@@ -18,15 +20,12 @@ angular.module('rocketApp', [])
         url:'/rocketList'
       })
       .then(function(rockets) {
-        console.log('Rockets retrieved successfully');
+        console.log(rockets);
         rockets.data.forEach(function(rocket) {
-          //console.log(rocket);
           $scope.myRockets.push(rocket);
         });
       });
     };
-
-    $scope.getAllRockets();
 
     $scope.addRocket = function(rocket) {
       console.log('addRocket was called');
@@ -54,9 +53,20 @@ angular.module('rocketApp', [])
         'deltav': $scope.rocket.deltav
       };
 
-      console.log(myRocket);
+      myRocket.where = myRocket.deltav > 10000 ? 'Your rocket can reach the moon!' : 'Your rocket can\'t reach the moon.';
 
       $scope.addRocket(myRocket);
+    };
+
+    $scope.clearHistory = function() {
+      $http({
+        method:'DELETE',
+        url:'/rocketList'
+      })
+      .then(function() {
+        $scope.myRockets = [];
+        console.log('History successfully deleted');
+      });
     };
 
 });

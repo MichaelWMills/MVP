@@ -7,25 +7,14 @@
   <body ng-controller='rocketController as rocket' ng-init='getAllRockets()'>
     <div>Trying to get off-planet? Use this calculator to estimate the amount of fuel you'll need!</div>
       <form>
-        <h4>
-          Name of Rocket:<input type='string' ng-model='rocket.model'>
-        </h4>
-        <h4>
-          Full Mass:<input type='number' ng-model='rocket.fullmass'>
-        </h4>
-        <h4>
-          Dry Mass:<input type='number' ng-model='rocket.drymass'>
-        </h4>
-        <h4>
-          Specific Impulse:<input type='number' ng-model='rocket.engineisp'>
-        </h4>
-        <h4>
-          <button class='btn' ng-click='calculate()'>Calculate Delta-V</button>
-        </h4>
+        <h4>Name of Rocket:<input type='string' ng-model='rocket.model'></h4>
+        <h4>Full Mass:<input type='number' ng-model='rocket.fullmass'>kg</h4>
+        <h4>Dry Mass:<input type='number' ng-model='rocket.drymass'>kg</h4>
+        <h4>Specific Impulse:<input type='number' ng-model='rocket.engineisp'>seconds</h4>
+        <h4><button class='btn' ng-click='calculate()'>Calculate Delta-V</button></h4>
       </form>
-    <div>
-      Your rocket can execute propulsion maneuvers roughly equal to <strong>{{ rocket.deltav }}km/s</strong>.
-    </div>
+    <div ng-model='rocket.where'>Your rocket can execute propulsion maneuvers roughly equal to <strong>{{ rocket.deltav }}km/s</strong>. {{ rocket.where }}</div>
+    <h4><button class='btn' ng-click='clearHistory()'>Clear History</button></h4>
     <ul>
       <li ng-repeat='Rockets in myRockets'>Model: {{ Rockets.model }}: Engine ISP({{ Rockets.engineisp }}) * 9.8 * ln (Full Mass({{ Rockets.fullmass }}) - Dry Mass: ({{ Rockets.drymass }})) = <strong>{{ Rockets.deltav }}km/s of Delta-V</strong></li>
     </ul>

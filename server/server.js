@@ -42,13 +42,17 @@ app.post('/rocketList', function(req, res) {
     deltav: req.body.deltav
   });
 
-  rocket.save(function(err) {
+  rocket.save(function(err, rocket) {
     if(err){
       throw err;
     } else {
       console.log('rocket saved successfully');
     }
+  })
+  .then(function(rocket){
+    res.send(rocket);
   });
+
 });
 
 app.get('/rocketList', function(req, res) {
@@ -58,5 +62,14 @@ app.get('/rocketList', function(req, res) {
     } else {
       res.send(rockets);
     }
+  });
+});
+
+app.delete('/rocketList', function(req, res) {
+  Rocket.remove({}, function(err) {
+    console.log('History successfully deleted');
+  })
+  .then(function(rocket){
+    res.send(rocket);
   });
 });
