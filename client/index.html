@@ -16,7 +16,7 @@
     <div ng-model='rocket.where'>Your rocket can execute propulsion maneuvers roughly equal to <strong>{{ rocket.deltav }}m/s</strong>. {{ rocket.where }}</div>
     <h4><button class='btn' ng-click='clearHistory()'>Clear History</button></h4>
     <ul>
-      <li ng-repeat='Rockets in myRockets'>Model: {{ Rockets.model }}: Engine ISP({{ Rockets.engineisp }}) * 9.8 * ln (Full Mass({{ Rockets.fullmass }}) - Dry Mass: ({{ Rockets.drymass }})) = <strong>{{ Rockets.deltav }}km/s of Delta-V</strong></li>
+      <li ng-repeat='Rockets in myRockets'>Model: {{ Rockets.model }}: Engine ISP({{ Rockets.engineisp }}) * 9.8 * ln (Full Mass({{ Rockets.fullmass }}) - Dry Mass: ({{ Rockets.drymass }})) = <strong>{{ Rockets.deltav }}m/s of Delta-V</strong></li>
     </ul>
   </body>
 </html>
