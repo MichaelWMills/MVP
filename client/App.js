@@ -14,21 +14,20 @@ angular.module('rocketApp', [])
     $scope.rocket.where = '';
 
     $scope.getAllRockets = function() {
-      console.log('getAllRockets was called');
       $http({
         method:'GET',
         url:'/rocketList'
       })
       .then(function(rockets) {
-        console.log(rockets);
-        rockets.data.forEach(function(rocket) {
-          $scope.myRockets.push(rocket);
-        });
+        console.log(rockets.data);
+        // rockets.data.forEach(function(rocket) {
+        //   $scope.myRockets.push(rocket);
+        // });
+        $scope.myRockets = rockets.data;
       });
     };
 
     $scope.addRocket = function(rocket) {
-      console.log('addRocket was called');
       $http({
         method:'POST',
         url:'/rocketList',
@@ -53,7 +52,8 @@ angular.module('rocketApp', [])
         'deltav': $scope.rocket.deltav
       };
 
-      myRocket.where = myRocket.deltav > 10000 ? 'Your rocket can reach the moon!' : 'Your rocket can\'t reach the moon.';
+      //functionality to be used later in development
+      //myRocket.where = myRocket.deltav > 10000 ? 'Your rocket can reach the moon!' : 'Your rocket can\'t reach the moon.';
 
       $scope.addRocket(myRocket);
     };
